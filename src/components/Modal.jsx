@@ -1,6 +1,6 @@
 import { IconSquareRoundedXFilled } from "@tabler/icons-react"
 
-const Modal = ({isShowModal, handleCloseModal, register, handleSubmit, submit, idCardToEdit}) => {
+const Modal = ({isShowModal, handleCloseModal, register, handleSubmit, submit, idCardToEdit, errors}) => {
 
   return (
     <section className={`absolute bg-[#ffffff9d] z-50 top-0 bottom-0 right-0 left-0 flex justify-center items-center px-3 transition-opacity duration-500  ${isShowModal ? "visible opacity-100" : "invisible opacity-0"}`}>
@@ -9,7 +9,17 @@ const Modal = ({isShowModal, handleCloseModal, register, handleSubmit, submit, i
             <button onClick={handleCloseModal} type="button" className="absolute top-2 right-2 text-red-600 transition-all hover:text-red-500"> <IconSquareRoundedXFilled/> </button>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="">Email</label>
-          <input className='border-2 border-[#E5E5E5]  outline-none text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3 ' id='email' {...register("email")} type="text" />
+          <input className='border-2 border-[#E5E5E5]  outline-none text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3 ' id='email' {...register("email", {
+            required: {
+                value: true,
+                message: "Este campo es requerido",
+            },
+            maxLength: {
+                value: 150,
+                message: "Maximo 150 caracteres"
+            }
+            })} type="text" />
+          {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="password">Password</label>

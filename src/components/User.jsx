@@ -39,7 +39,7 @@ text-red-500 rounded-lg border-[2px] bg-[#a3a3a3]">
 
 <hr className="sm:w-[400px] w-[250px] border-[2px] border-[#E5E5E5]"/>
 <ul className="">
-       <div className="grid grid-cols-2 pt-4 text-sm gap-1 pl-2">
+       <div className="grid sm:grid-cols-[1fr,180px] grid-cols-[1fr,_120px] pt-4 text-sm gap-1 pl-2">
            <li className="text-[#D3D3D3]">Email: </li>
            <li className="text-[#D3D3D3]">Birthday:</li>
            <li className="text-white">{user.email}</li>

@@ -14,7 +14,7 @@ function App() {
 
   const [idCardToEdit, setIdCardToEdit] = useState(null)
   
-  const {handleSubmit, register, reset} = useForm() 
+  const {handleSubmit, register, reset, formState: {errors}} = useForm() 
 
 
   const submit = (data) => {
@@ -96,7 +96,7 @@ function App() {
         <button className='bg-[#CBFFDA] hover:bg-[#a4ffbe]  text-[#302F2F] top-56 w-[200px] rounded-md sm:w-[345px] h-[42px]' onClick={hanldeOpenModal}>Crear usuario</button>
         </div>
       </header>
-      <Modal isShowModal={isShowModal} handleCloseModal={handleCloseModal} handleSubmit={handleSubmit} register={register} submit={submit} idCardToEdit={idCardToEdit}/>
+      <Modal isShowModal={isShowModal} handleCloseModal={handleCloseModal} handleSubmit={handleSubmit} register={register} submit={submit} idCardToEdit={idCardToEdit} errors={errors}/>
       <UsersList users={users} handleEditUsers={handleEditUsers} handleDeleteUser={handleDeleteUser}/>
     </main>
   )
