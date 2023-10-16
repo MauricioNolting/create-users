@@ -89,9 +89,12 @@ function App() {
 
 
   return (
-    <main className='min-h-screen'>
-      <header>
-        <button onClick={hanldeOpenModal}>Crear usuario</button>
+    <main className='min-h-screen bg-slate-900 grid justify-center'>
+      <header className='mb-0'>
+        <div className='flex flex-col items-center gap-40 mb-0'>
+        <span className='text-[#8EFF8B] top-14 w-300px mx-auto mt-8'>List of user</span>
+        <button className='bg-[#CBFFDA] hover:bg-[#a4ffbe]  text-[#302F2F] top-56 w-[200px] rounded-md sm:w-[345px] h-[42px]' onClick={hanldeOpenModal}>Crear usuario</button>
+        </div>
       </header>
       <Modal isShowModal={isShowModal} handleCloseModal={handleCloseModal} handleSubmit={handleSubmit} register={register} submit={submit} idCardToEdit={idCardToEdit}/>
       <UsersList users={users} handleEditUsers={handleEditUsers} handleDeleteUser={handleDeleteUser}/>

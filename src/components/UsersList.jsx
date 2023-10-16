@@ -1,9 +1,10 @@
+
 import User from "./User"
 
 /* eslint-disable react/prop-types */
 const UsersList = ({users, handleEditUsers, handleDeleteUser}) => {
   return (
-    <section className="grid grid-cols-[repeat(auto-fit,_270px)] max-w-[1000px] gap-5 justify-center mx-auto">
+    <section className="grid gap-2 mt-5 min-h-screen">
 
     {
         users.map((user) => ( 
