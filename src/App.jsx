@@ -96,6 +96,7 @@ function App() {
 
 
   return (
+   
     <main className='min-h-screen bg-slate-900 grid justify-center'>
       <header className='mb-0'>
         <div className='flex flex-col items-center gap-40 mb-0'>
@@ -104,8 +105,8 @@ function App() {
         </div>
       </header>
       <Modal isShowModal={isShowModal} handleCloseModal={handleCloseModal} handleSubmit={handleSubmit} register={register} submit={submit} idCardToEdit={idCardToEdit} errors={errors}/>
-      <UsersList users={users} handleEditUsers={handleEditUsers} handleDeleteUser={handleDeleteUser} confirmDelete={confirmDelete}/>
-    </main>
+      <UsersList users={users} handleEditUsers={handleEditUsers}  confirmDelete={confirmDelete}/>
+    </main> 
   )
 }
 

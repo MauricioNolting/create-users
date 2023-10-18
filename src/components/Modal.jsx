@@ -69,7 +69,12 @@ const Modal = ({isShowModal, handleCloseModal, register, handleSubmit, submit, i
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="birthday">Birthday</label>
-          <input className='border-2  outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='birthday' {...register('birthday')} type="date" />
+          <input className='border-2  outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='birthday' {...register('birthday', {
+             required: {
+              value: true,
+              message: "Este campo es requerido"
+            }
+          })} type="date" />
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="image_url">Photo</label>

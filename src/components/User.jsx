@@ -36,7 +36,7 @@ text-red-500 rounded-lg border-[2px] bg-[#a3a3a3]">
 
     <h2 className="w-[400px] text-xl p-3 text-[#0F0F2D]">
 {user.first_name}  {user.last_name}</h2>
-   <button onClick={() => handleEditUsers(user.id)} className="w-9 h-9 bg-white rounded-md mt-2 flex justify-center items-center transition-all duration-200 text-black hover:bg-slate-300 hover:text-white"> 
+   <button onClick={() => handleEditUsers(user)} className="w-9 h-9 bg-white rounded-md mt-2 flex justify-center items-center transition-all duration-200 text-black hover:bg-slate-300 hover:text-white"> 
        <IconPencil className=""/>
 
    </button>
