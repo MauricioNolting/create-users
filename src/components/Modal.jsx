@@ -17,21 +17,55 @@ const Modal = ({isShowModal, handleCloseModal, register, handleSubmit, submit, i
             maxLength: {
                 value: 150,
                 message: "Maximo 150 caracteres"
+            },
+            pattern: {
+              value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              message: "No es un correo valido"
             }
             })} type="text" />
           {errors.email && <span className="text-red-500 text-sm">{errors.email.message}</span>}
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="password">Password</label>
-          <input className='border-2 outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='password' {...register("password")} type="text" />
+          <input className='border-2 outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='password' {...register("password", {
+             required: {
+              value: true,
+              message: "Este campo es requerido",
+          },
+          maxLength: {
+              value: 150,
+              message: "Maximo 150 caracteres"
+          }
+          })} type="text" />
+          {errors.password && <span className="text-red-500 text-sm">{errors.password.message}</span>}
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="first_name">First name</label>
-          <input className='border-2 outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='first_name' {...register("first_name")} type="text" />
+          <input className='border-2 outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='first_name' {...register("first_name", {
+            required: {
+              value: true,
+              message: "Este campo es requerido"
+            }, 
+            maxLength: {
+              value: 150,
+              message: "Maximo 150 caracteres"
+            }
+          })} type="text" />
+          {errors.first_name && <span className="text-red-500 text-sm">{errors.first_name.message}</span>  }
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="last_name">Last name</label>
-          <input className='border-2 outline-none border-[#E5E5E5]  text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='last_name' {...register("last_name")} type="text" />
+          <input className='border-2 outline-none border-[#E5E5E5]  text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='last_name' {...register("last_name", {
+             required: {
+              value: true,
+              message: "Este campo es requerido"
+            }, 
+            maxLength: {
+              value: 150,
+              message: "Maximo 150 caracteres"
+            }
+          })} type="text" />
+           {errors.last_name && <span className="text-red-500 text-sm">{errors.last_name.message}</span>  }
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="birthday">Birthday</label>
@@ -39,7 +73,17 @@ const Modal = ({isShowModal, handleCloseModal, register, handleSubmit, submit, i
         </div>
         <div className="grid m-2">
           <label className="text-start text-[#8EFF8B]" htmlFor="image_url">Photo</label>
-          <input className='border-2 outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='image_url' {...register('image_url')} type="text" />
+          <input className='border-2 outline-none border-[#E5E5E5] text-[#E5E5E5] p-1 rounded-md bg-[#3C3C3D] px-3' id='image_url' {...register('image_url', {
+            pattern: {
+              value: /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/[^\s]*)?$/i,
+              message: "No es una URL valida"
+            },
+            required: {
+              value: true,
+              message: "Este campo es requerido"
+            }
+          })} type="text" />
+          {errors.image_url && <span className="text-red-500 text-sm">{errors.image_url.message}</span>}
         </div>
 
     <div className="grid justify-center gap-3">

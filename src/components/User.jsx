@@ -1,6 +1,9 @@
 import { IconPencil, IconTrashXFilled } from "@tabler/icons-react"
 
-const User = ({user, handleDeleteUser, handleEditUsers}) => {
+const User = ({user, handleEditUsers, confirmDelete}) => {
+
+
+
   return (
     // <article className="w-[503px] h-[161px]">
     //      <ul  className="my-4 text-red-500 rounded-lg border-[2px] bg-[#D3D3D3]">
@@ -21,18 +24,23 @@ const User = ({user, handleDeleteUser, handleEditUsers}) => {
     //     </div> 
             
     // </article>
-
-<article className="w-[350px] h-[161px] sm:w-[503px] 
+<article className="z-10 mt-4">
+    <div className="max-w-[200px] max-h-[200px] overflow-hidden rounded-full mx-auto relative bottom-1 border-2">
+    <img className="rounded-full" src={user.image_url} alt="" />
+    </div>
+<div className="w-[350px] h-[161px] sm:w-[503px] 
 text-red-500 rounded-lg border-[2px] bg-[#a3a3a3]">
+   
+    
     <div className="bg-red top-2 right-2 flex gap-2 justify-end">
 
     <h2 className="w-[400px] text-xl p-3 text-[#0F0F2D]">
 {user.first_name}  {user.last_name}</h2>
-   <button onClick={() => handleEditUsers(user)} className="w-9 h-9 bg-white rounded-md mt-2 flex justify-center items-center transition-all duration-200 text-black hover:bg-slate-300 hover:text-white"> 
+   <button onClick={() => handleEditUsers(user.id)} className="w-9 h-9 bg-white rounded-md mt-2 flex justify-center items-center transition-all duration-200 text-black hover:bg-slate-300 hover:text-white"> 
        <IconPencil className=""/>
 
    </button>
-   <button onClick={() => handleDeleteUser(user.id)} className="w-9 h-9 rounded-md flex justify-center transition-all duration-200 items-center mt-2 mr-2 text-black bg-red-500 hover:bg-red-600"> 
+   <button onClick={() => confirmDelete(user.id)} className="w-9 h-9 rounded-md flex justify-center transition-all duration-200 items-center mt-2 mr-2 text-black bg-red-500 hover:bg-red-600"> 
        <IconTrashXFilled className=""/>
    </button>
 </div> 
@@ -46,8 +54,7 @@ text-red-500 rounded-lg border-[2px] bg-[#a3a3a3]">
            <li className="text-white">{user.birthday}</li>
        </div>
 </ul> 
-
-   
+</div>
 </article>
   )
 }

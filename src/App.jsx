@@ -16,6 +16,13 @@ function App() {
   
   const {handleSubmit, register, reset, formState: {errors}} = useForm() 
 
+  const confirmDelete = (id) => {
+    const result = window.confirm("Seguro que quiere eliminar este usuario?")
+    if (result) {
+        handleDeleteUser(id)
+    }
+}
+
 
   const submit = (data) => {
     if (idCardToEdit) {
@@ -97,7 +104,7 @@ function App() {
         </div>
       </header>
       <Modal isShowModal={isShowModal} handleCloseModal={handleCloseModal} handleSubmit={handleSubmit} register={register} submit={submit} idCardToEdit={idCardToEdit} errors={errors}/>
-      <UsersList users={users} handleEditUsers={handleEditUsers} handleDeleteUser={handleDeleteUser}/>
+      <UsersList users={users} handleEditUsers={handleEditUsers} handleDeleteUser={handleDeleteUser} confirmDelete={confirmDelete}/>
     </main>
   )
 }
